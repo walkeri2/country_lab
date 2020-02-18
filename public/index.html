@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="text/javascript" src="./js/bundle.js"></script>
+  <title></title>
+</head>
+<body>
+  <div id="app">
+    <h1>Countries</h1>
+    <h2>{{favCountries}}</h2>
+    <select id="countries" v-if="countryList" v-model="selectedCountry">
+      <option v-for= "country in countryList" :value="country" >{{country.name}}</option>
+    </select>
+    <p>{{totalPopulation}}</p>
+
+    <div v-if= "selectedCountry">
+    <p>{{selectedCountry.name}}</p>
+    <p>{{selectedCountry.population}}</p>
+    <p>{{selectedCountry.capital}}</p>
+    <button v-on:click="makeFavourite">Make Favourite</button>
+    </div>
+  </div>
+</body>
+</html>
